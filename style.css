@@ -82,7 +82,7 @@ h1 {
     height: 300px;
     border-radius: 120px 120px 10px 10px; /* Creates the arch shape */
     overflow: hidden;
-    background-color: #fff;
+    background-color: #ffffff00;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: transform 1s ease-in-out, filter 1s ease-in-out, z-index 0s 0.5s;
     filter: brightness(0.7) blur(2px);
