@@ -80,7 +80,7 @@ h1 {
     position: absolute;
     width: 200px;
     height: 300px;
-    border-radius: 120px 120px 10px 10px; /* Creates the arch shape */
+    border-radius: 10px; /* Changed from 120px 120px 10px 10px to a simple rounded corner */
     overflow: hidden;
     background-color: #ffffff00;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
