@@ -35,6 +35,14 @@ header {
 .logo {
     font-size: 1.5rem;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 120px; /* Adjust this value based on your logo size */
+    width: auto;
+    display: block;
 }
 
 nav a {
@@ -158,56 +166,69 @@ h1 {
     }
 
     .carousel {
-        height: 300px;
+        height: 400px;  /* Increased from 300px */
     }
 
     .carousel-item {
-        width: 150px;
-        height: 225px;
+        width: 180px;   /* Increased from 150px */
+        height: 270px;  /* Increased from 225px */
     }
 
     /* Adjust positioning for carousel items on mobile */
     .carousel-item.active {
-        transform: translateX(0) scale(1.1);
+        transform: translateX(0) scale(1.15);  /* Increased scale */
     }
 
     .carousel-item.prev-1 {
-        transform: translateX(-160px) scale(0.9);
+        transform: translateX(-180px) scale(0.95);  /* Adjusted position and scale */
     }
 
     .carousel-item.next-1 {
-        transform: translateX(160px) scale(0.9);
+        transform: translateX(180px) scale(0.95);   /* Adjusted position and scale */
     }
 
     .carousel-item.prev-2 {
-        transform: translateX(-300px) scale(0.7);
+        transform: translateX(-340px) scale(0.75);  /* Adjusted position and scale */
     }
 
     .carousel-item.next-2 {
-        transform: translateX(300px) scale(0.7);
+        transform: translateX(340px) scale(0.75);   /* Adjusted position and scale */
+    }
+
+    .logo img {
+        height: 120px; /* Slightly smaller logo on mobile */
     }
 }
 
 /* Small mobile devices */
 @media screen and (max-width: 480px) {
+    .carousel {
+        height: 450px;  /* Increased height to accommodate larger cards */
+    }
+
     .carousel-item {
-        width: 120px;
-        height: 180px;
+        width: 160px;   /* Increased from 140px */
+        height: 250px;  /* Increased from 210px */
+    }
+
+    /* Adjust positioning for carousel items on mobile */
+    .carousel-item.active {
+        transform: translateX(0) scale(1.1);  /* Slightly reduced scale for better fit */
     }
 
     .carousel-item.prev-1 {
-        transform: translateX(-130px) scale(0.9);
+        transform: translateX(-170px) scale(0.9);  /* Adjusted position for new size */
     }
 
     .carousel-item.next-1 {
-        transform: translateX(130px) scale(0.9);
+        transform: translateX(170px) scale(0.9);   /* Adjusted position for new size */
     }
 
     .carousel-item.prev-2 {
-        transform: translateX(-240px) scale(0.7);
+        transform: translateX(-320px) scale(0.7);  /* Adjusted position for new size */
     }
 
     .carousel-item.next-2 {
-        transform: translateX(240px) scale(0.7);
+        transform: translateX(320px) scale(0.7);   /* Adjusted position for new size */
     }
 }
