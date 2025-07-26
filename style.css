@@ -5,62 +5,70 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #121212;
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
+    overflow-x: hidden;  /* Prevent horizontal scroll */
+    overflow-y: auto;   /* Enable vertical scrolling */
+    width: 100%;
 }
 
 #carousel-container {
-    width: 90%;
-    max-width: 1200px;
-    height: 700px;
-    background-color: #2E2E2E; /* Initial background color */
-    border-radius: 20px;
-    padding: 30px 50px;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 0;    /* Remove horizontal padding */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    transition: background-color 1s ease-in-out; /* Smooth background color transition */
-    overflow: hidden;
+    transition: background-color 1s ease-in-out;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    position: relative;
 }
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;  /* Changed to align nav to right */
     align-items: center;
     width: 100%;
+    margin-bottom: 40px;
+    position: relative;  /* Added for absolute positioning context */
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 600;
+    position: absolute;  /* Changed from absolute to fixed */
+    left: 40px;
+    top: -20px;
+    z-index: 1000;    /* Increased z-index to ensure it stays on top */
+    width: auto;
+    height: auto;
     display: flex;
     align-items: center;
 }
 
 .logo img {
-    height: 120px; /* Adjust this value based on your logo size */
+    height: 200px;    /* Reduced from 300px for better proportions */
     width: auto;
     display: block;
+    transition: all 0.3s ease;  /* Smooth transition for any changes */
 }
 
 nav {
+    margin-left: auto;  /* Push nav to right */
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 15px;
-    padding: 10px 20px;
+    padding: 15px 30px;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.18);
-    margin-right: 20px;
+    margin-right: 40px;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
-    margin-left: 25px;
-    font-size: 1rem;
+    margin-left: 35px;
+    font-size: 1.2rem;
     opacity: 0.9;
     transition: opacity 0.3s, transform 0.3s, color 0.3s;
 }
@@ -75,33 +83,38 @@ main {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 40px;  /* Add bottom margin for spacing */
 }
 
 h1 {
     font-size: 2.5rem;
     font-weight: 500;
     text-align: center;
-    max-width: 600px;
-    margin-bottom: 50px;
+    max-width: 800px;
+    margin-bottom: 60px;
 }
 
 .carousel {
     position: relative;
     width: 100%;
-    height: 400px; /* Height of the carousel area */
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+    overflow: hidden;   /* Prevent carousel overflow */
 }
 
 .carousel-item {
     position: absolute;
-    width: 200px;
-    height: 300px;
-    border-radius: 10px; /* Changed from 120px 120px 10px 10px to a simple rounded corner */
+    width: 280px;       /* Reduced from 400px */
+    height: 350px;      /* Reduced from 400px;      /* Reduced from 550px */
+    border-radius: 10px;
     overflow: hidden;
     background-color: #ffffff00;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -118,52 +131,57 @@ h1 {
 
 /* Positioning for the 5 items */
 .carousel-item.active {
-    transform: translateX(0) scale(1.2);
+    transform: translateX(0) scale(1.1);  /* Reduced scale from 1.2 */
     filter: brightness(1) blur(0);
     z-index: 5;
 }
 
 .carousel-item.prev-1 {
-    transform: translateX(-220px) scale(1);
-    filter: brightness(0.9) blur(1px);
+    transform: translateX(-300px) scale(0.9);  /* Adjusted position */
     z-index: 4;
 }
 
 .carousel-item.next-1 {
-    transform: translateX(220px) scale(1);
-    filter: brightness(0.9) blur(1px);
+    transform: translateX(300px) scale(0.9);   /* Adjusted position */
     z-index: 4;
 }
 
 .carousel-item.prev-2 {
-    transform: translateX(-420px) scale(0.8);
-    filter: brightness(0.7) blur(2px);
+    transform: translateX(-580px) scale(0.7);  /* Adjusted position */
     z-index: 3;
 }
 
 .carousel-item.next-2 {
-    transform: translateX(420px) scale(0.8);
-    filter: brightness(0.7) blur(2px);
+    transform: translateX(580px) scale(0.7);   /* Adjusted position */
     z-index: 3;
 }
 
 /* Mobile Responsive Design */
 @media screen and (max-width: 768px) {
     #carousel-container {
+        padding: 20px 0;  /* Remove horizontal padding */
         width: 100%;
-        padding: 20px;
-        height: auto;
-        min-height: 100vh;
+        overflow-x: hidden;
     }
 
     header {
-        flex-direction: column;
-        gap: 20px;
+        justify-content: center;
+        padding-top: 120px; /* Make room for logo */
+        padding-left: 20px;  
+    }
+
+    .logo {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20px;
+    }
+
+    .logo img {
+        height: 150px; /* Increased from 60px */
     }
 
     nav {
-        padding: 15px;
-        margin-right: 0;
+        margin-left: 0;
         width: 90%;
         display: flex;
         justify-content: center;
@@ -181,7 +199,8 @@ h1 {
     }
 
     .carousel {
-        height: 400px;  /* Increased from 300px */
+        overflow: hidden;
+        width: 100%;
     }
 
     .carousel-item {
@@ -211,12 +230,21 @@ h1 {
     }
 
     .logo img {
-        height: 120px; /* Slightly smaller logo on mobile */
+        height: 200px; /* Slightly smaller logo on mobile */
     }
 }
 
 /* Small mobile devices */
 @media screen and (max-width: 480px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    #carousel-container {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
     .carousel {
         height: 450px;  /* Increased height to accommodate larger cards */
     }
@@ -245,5 +273,15 @@ h1 {
 
     .carousel-item.next-2 {
         transform: translateX(320px) scale(0.7);   /* Adjusted position for new size */
+    }
+
+    .logo {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 10px;
+    }
+
+    .logo img {
+        height: 120px; /* Increased from 60px */
     }
 }
